@@ -112,7 +112,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Leading full-stack web applications with 3.5+ years of experience. Specializing in React, Next.js, Vue.js and Python Django with a passion for creating seamless user experiences.
+          Building full-stack web applications with 3.5+ years of experience. Specializing in React, Next.js, Vue.js and Python Django with a passion for creating seamless user experiences.
         </motion.p>
 
         <motion.div

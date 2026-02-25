@@ -103,7 +103,7 @@ export default function About() {
         >
           <motion.div variants={itemVariants} className="space-y-6">
             {[
-              "I'm a passionate Full-Stack Developer with over 3.5 years of experience in building modern web applications. Leading full-stack web applications with a strong expertise across the tech stack.",
+              "I'm a passionate Full-Stack Developer with over 3.5 years of experience in building modern web applications. Building full-stack web applications with a strong expertise across the tech stack.",
               "What drives me is the intersection of design and functionality—creating solutions that not only look great but work seamlessly. I have a strong foundation in both frontend and backend technologies, allowing me to understand the full picture of application development.",
               "When I'm not coding, I'm exploring new technologies, contributing to open-source projects, and continuously learning to stay updated with the ever-evolving tech landscape.",
             ].map((text, idx) => (
