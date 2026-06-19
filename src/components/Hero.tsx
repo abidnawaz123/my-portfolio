@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -13,7 +13,7 @@ export default function Hero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -22,14 +22,6 @@ export default function Hero() {
     },
   };
 
-  const floatingEmoji = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: [0, 0.7, 0],
-      y: -200,
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-    },
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">

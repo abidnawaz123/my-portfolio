@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { CircuitBoard, Braces, Database, Wrench } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
@@ -32,7 +32,7 @@ export default function Skills() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -43,7 +43,7 @@ export default function Skills() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: {
       opacity: 1,
@@ -102,7 +102,6 @@ export default function Skills() {
               {/* Animated glow on hover */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0"
-                whileHover={{ from: "from-purple-500/10 to-pink-500/10" }}
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}

@@ -5,7 +5,7 @@ import { Menu, X, Sparkles } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
+  const [, setActiveLink] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +75,6 @@ export default function Navbar() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
             whileHover={{ rotate: 360 }}
-            whileHoverDuration={0.6}
           >
             <span className="text-white font-bold text-lg">AN</span>
           </motion.div>

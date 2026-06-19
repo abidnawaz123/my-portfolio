@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, Github, Linkedin, Send } from "lucide-react";
 
 export default function Contact() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
-  const contactVariants = {
+  const contactVariants: Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.9 },
     visible: {
       opacity: 1,

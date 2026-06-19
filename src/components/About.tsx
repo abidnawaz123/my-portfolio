@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
+import { motion, useMotionValue, useSpring, useMotionValueEvent, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -43,7 +43,7 @@ function AnimatedCounter({ value, suffix = "", decimals = 0, inView }: AnimatedC
 export default function About() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -54,7 +54,7 @@ export default function About() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, x: -30 },
     visible: {
       opacity: 1,
