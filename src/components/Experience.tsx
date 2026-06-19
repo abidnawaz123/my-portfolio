@@ -228,7 +228,7 @@ export default function Experience() {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              3.5+ Years
+              4 Years
             </motion.span>
           </p>
           <p className="text-slate-400 mt-2">
