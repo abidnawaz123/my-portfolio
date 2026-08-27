@@ -106,132 +106,66 @@ export default function Experience() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ x: 8 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
+              className="relative pl-10 md:pl-16"
             >
-              {/* Animated timeline line */}
+              {/* Timeline vertical bar */}
               {index !== experiences.length - 1 && (
-                <motion.div
-                  className="absolute left-6 top-20 w-0.5 h-32 bg-gradient-to-b from-purple-500/50 via-purple-500/30 to-transparent"
-                  initial={{ scaleY: 0, originY: 0 }}
-                  animate={inView ? { scaleY: 1 } : { scaleY: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                />
+                <div className="absolute left-4 md:left-6 top-10 bottom-0 w-0.5 bg-gradient-to-b from-purple-500/40 via-purple-500/20 to-transparent" />
               )}
 
-              {/* Animated timeline dot */}
-              <motion.div
-                className="absolute left-0 top-0 w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center z-10 shadow-lg shadow-purple-500/50"
-                initial={{ scale: 0 }}
-                animate={inView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.15, type: "spring", stiffness: 200 }}
-                whileHover={{ scale: 1.2 }}
-              >
-                <motion.div
-                  className="w-3 h-3 bg-white rounded-full"
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                />
-              </motion.div>
+              {/* Timeline marker */}
+              <div className="absolute left-1.5 md:left-3.5 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-purple-400 flex items-center justify-center shadow-md shadow-purple-500/30">
+                <div className="w-2 h-2 rounded-full bg-purple-400" />
+              </div>
 
               {/* Content card */}
               <motion.div
-                className="ml-20 glass-card-float p-8 group overflow-hidden"
-                whileHover={{ scale: 1.02 }}
+                className="glass-card p-6 md:p-8 group"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
               >
-                {/* Hover shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
-
-                <div className="relative z-10">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                    <div>
-                      <motion.h3
-                        className="text-2xl font-semibold text-white mb-1 group-hover:gradient-text transition-all duration-300"
-                        animate={{ opacity: [1, 0.8, 1] }}
-                        transition={{ duration: 5, repeat: Infinity }}
-                      >
-                        {exp.role}
-                      </motion.h3>
-                      <motion.p
-                        className="text-slate-300 font-semibold"
-                        initial={{ opacity: 0.7 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {exp.company}
-                      </motion.p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-slate-400 text-sm">{exp.duration}</p>
-                      <motion.p
-                        className="text-lg font-semibold gradient-text"
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
-                      >
-                        {exp.years} years
-                      </motion.p>
-                    </div>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4 pb-4 border-b border-white/5">
+                  <div>
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                      {exp.role}
+                    </h3>
+                    <p className="text-slate-300 font-medium text-sm sm:text-base">
+                      {exp.company}
+                    </p>
                   </div>
-
-                  <motion.ul
-                    className="space-y-3"
-                    initial="hidden"
-                    whileInView="visible"
-                    variants={{
-                      visible: {
-                        transition: { staggerChildren: 0.08 },
-                      },
-                    }}
-                  >
-                    {exp.responsibilities.map((resp, respIndex) => (
-                      <motion.li
-                        key={respIndex}
-                        variants={{
-                          hidden: { opacity: 0, x: -15 },
-                          visible: { opacity: 1, x: 0 },
-                        }}
-                        transition={{ duration: 0.5 }}
-                        className="flex items-start gap-3 text-slate-300 hover:text-slate-100 transition-colors duration-300"
-                      >
-                        <motion.span
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 2, repeat: Infinity, delay: respIndex * 0.2 }}
-                        >
-                          <ChevronRight className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                        </motion.span>
-                        <span>{resp}</span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
+                  <div className="md:text-right">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                      {exp.duration} ({exp.years} years)
+                    </span>
+                  </div>
                 </div>
+
+                <ul className="space-y-2.5">
+                  {exp.responsibilities.map((resp, respIndex) => (
+                    <li
+                      key={respIndex}
+                      className="flex items-start gap-2.5 text-slate-300 text-sm md:text-base"
+                    >
+                      <ChevronRight className="w-4 h-4 text-purple-400 flex-shrink-0 mt-1" />
+                      <span>{resp}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             </motion.div>
           ))}
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.9 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 glass-card-float p-8 text-center"
-          whileHover={{ scale: 1.02 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-16 glass-card p-6 md:p-8 text-center"
         >
-          <p className="text-lg text-slate-300">
-            Total Experience: <motion.span
-              className="gradient-text font-bold text-2xl inline-block"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              4 Years
-            </motion.span>
+          <p className="text-lg text-slate-200 font-medium">
+            Total Experience: <span className="gradient-text text-xl">4 Years</span>
           </p>
-          <p className="text-slate-400 mt-2">
+          <p className="text-slate-400 text-sm mt-1">
             Building beautiful, scalable applications with passion for code quality and user experience
           </p>
         </motion.div>
