@@ -92,25 +92,25 @@ export default function Projects() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="glass-card p-6 md:p-8 overflow-hidden group border border-white/10 hover:border-purple-500/30"
+              className="glass-card p-6 md:p-8 overflow-hidden group hover:border-indigo-300"
             >
               <div className="relative z-10">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-300 text-base leading-relaxed max-w-2xl">
+                    <p className="text-slate-600 text-base leading-relaxed max-w-2xl">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="mb-5 p-3.5 rounded-xl border border-purple-500/20 bg-purple-500/10">
-                  <p className="text-purple-200 text-sm font-medium flex items-center gap-2">
-                    <span className="text-purple-400">✨</span>
+                <div className="mb-5 p-3.5 rounded-xl border border-indigo-200 bg-indigo-50/80">
+                  <p className="text-indigo-900 text-sm font-medium flex items-center gap-2">
+                    <span className="text-indigo-600">✨</span>
                     {project.highlight}
                   </p>
                 </div>
@@ -138,10 +138,10 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 glass-card p-8 text-center"
         >
-          <p className="text-lg text-slate-300 mb-6">
+          <p className="text-lg text-slate-700 mb-6">
             Looking for more projects? Check out my GitHub profile.
           </p>
           <motion.a

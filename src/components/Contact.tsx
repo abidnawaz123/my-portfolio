@@ -25,7 +25,7 @@ export default function Contact() {
       transition={{ duration: 0.2 }}
       className="icon-ring-glow"
     >
-      <Icon className="w-5 h-5 text-white" />
+      <Icon className="w-5 h-5 text-slate-700" />
     </motion.a>
   );
 
@@ -94,16 +94,16 @@ export default function Contact() {
             {contactItems.map((item, idx) => (
               <div key={idx}>
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
-                  <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                  <div className="p-3 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-200 text-sm">{item.title}</h3>
+                    <h3 className="font-semibold text-slate-500 text-sm">{item.title}</h3>
                     <a
                       href={item.href}
                       target={item.title !== "Email" ? "_blank" : undefined}
                       rel={item.title !== "Email" ? "noopener noreferrer" : undefined}
-                      className="text-white hover:text-purple-300 font-medium text-base sm:text-lg transition-colors inline-block mt-0.5"
+                      className="text-slate-900 hover:text-indigo-600 font-bold text-base sm:text-lg transition-colors inline-block mt-0.5"
                     >
                       {item.content}
                     </a>
@@ -111,7 +111,7 @@ export default function Contact() {
                 </div>
 
                 {idx !== contactItems.length - 1 && (
-                  <div className="h-px bg-white/10 my-6" />
+                  <div className="h-px bg-slate-200 my-6" />
                 )}
               </div>
             ))}
@@ -166,13 +166,9 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          <motion.p
-            className="text-slate-400"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Based in <span className="text-purple-400 font-semibold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
-          </motion.p>
+          <p className="text-slate-600 font-medium">
+            Based in <span className="text-indigo-600 font-bold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
+          </p>
         </motion.div>
       </div>
     </section>

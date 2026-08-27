@@ -103,40 +103,31 @@ export default function About() {
               "What drives me is the intersection of design and functionality—creating solutions that not only look great but work seamlessly. I have a strong foundation in both frontend and backend technologies, allowing me to understand the full picture of application development.",
               "When I'm not coding, I'm exploring new technologies, contributing to open-source projects, and continuously learning to stay updated with the ever-evolving tech landscape.",
             ].map((text, idx) => (
-              <motion.p
+              <p
                 key={idx}
-                className="text-lg text-slate-300 leading-relaxed"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                whileHover={{ x: 5 }}
+                className="text-lg text-slate-700 leading-relaxed"
               >
                 {text}
-              </motion.p>
+              </p>
             ))}
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="glass-card-float p-8 space-y-6"
-            whileHover={{ y: -5 }}
+            className="glass-card p-6 md:p-8 space-y-4"
           >
             {[
               { title: "Frontend Stack", content: "React • Next.js • Vue.js • TypeScript • Tailwind CSS • MongoDB" },
               { title: "Backend Stack", content: "Python • Django • Django REST Framework • RESTful APIs" },
               { title: "Other Skills", content: "Git • Docker • Responsive Design • UI/UX • Performance Optimization" },
             ].map((stack, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                className="space-y-4 p-4 rounded-lg border border-white/5 hover:border-purple-400/30 transition-all duration-300"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.05)" }}
+                className="space-y-1.5 p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 hover:border-indigo-300 hover:bg-indigo-50/50 transition-all duration-200"
               >
-                <h3 className="text-xl font-semibold text-white">{stack.title}</h3>
-                <p className="text-slate-300">{stack.content}</p>
-              </motion.div>
+                <h3 className="text-base font-bold text-slate-900">{stack.title}</h3>
+                <p className="text-sm text-slate-600">{stack.content}</p>
+              </div>
             ))}
           </motion.div>
         </motion.div>
@@ -166,7 +157,7 @@ export default function About() {
                   inView={inView}
                 />
               </div>
-              <p className="text-slate-300 font-medium text-sm sm:text-base">
+              <p className="text-slate-600 font-medium text-sm sm:text-base">
                 {stat.label}
               </p>
             </motion.div>

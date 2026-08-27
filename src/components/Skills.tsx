@@ -95,15 +95,15 @@ export default function Skills() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
               className="glass-card p-6 md:p-8 group"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="icon-ring-glow">
-                  <category.icon className="w-5 h-5 text-purple-400" />
+                  <category.icon className="w-5 h-5 text-indigo-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                   {category.title}
                 </h3>
               </div>
@@ -123,13 +123,12 @@ export default function Skills() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.9 }}
-          animate={inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.9 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 glass-card-float p-8 text-center"
-          whileHover={{ scale: 1.02, y: -5 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16 glass-card p-8 text-center"
         >
-          <p className="text-lg text-slate-300 mb-4">
+          <p className="text-lg text-slate-700 mb-4">
             I'm always learning and exploring new technologies to stay at the forefront of web development.
           </p>
           <motion.div

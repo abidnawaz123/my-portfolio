@@ -91,14 +91,14 @@ export default function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-slate-300 mb-6 font-medium"
+          className="text-xl md:text-2xl text-slate-700 mb-6 font-medium"
         >
           Full Stack Engineer | Frontend Specialist | ReactJs | VueJs | NextJs
         </motion.p>
 
         <motion.p
           variants={itemVariants}
-          className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Building full-stack web applications with 4 years of experience. Specializing in React, Next.js, Vue.js and Python Django with a passion for creating seamless user experiences.
         </motion.p>
@@ -146,8 +146,8 @@ export default function Hero() {
             href="https://github.com/abidnawaz123"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-purple-400 transition-colors hover:scale-125"
-            whileHover={{ scale: 1.2, rotate: 10 }}
+            className="text-slate-600 hover:text-indigo-600 transition-colors"
+            whileHover={{ scale: 1.15, y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -158,8 +158,8 @@ export default function Hero() {
             href="https://www.linkedin.com/in/abid-nawaz-b99201290"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-400 transition-colors"
-            whileHover={{ scale: 1.2, rotate: 10 }}
+            className="text-slate-600 hover:text-indigo-600 transition-colors"
+            whileHover={{ scale: 1.15, y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -168,8 +168,8 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="mailto:youthone01@gmail.com"
-            className="text-gray-400 hover:text-purple-400 transition-colors"
-            whileHover={{ scale: 1.2, rotate: 10 }}
+            className="text-slate-600 hover:text-indigo-600 transition-colors"
+            whileHover={{ scale: 1.15, y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/60 transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -40,15 +40,10 @@ export default function Navbar() {
       <div
         className={`absolute inset-0 -z-10 transition-all duration-300 ${
           isScrolled
-            ? "bg-slate-950/80 backdrop-blur-md shadow-lg shadow-black/20"
-            : "bg-transparent backdrop-blur-xs"
+            ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200"
+            : "bg-white/40 backdrop-blur-xs"
         }`}
       />
-
-      {/* Subtle border glow */}
-      {isScrolled && (
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
-      )}
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between relative z-10">
         {/* Logo */}
@@ -56,21 +51,21 @@ export default function Navbar() {
           href="#home"
           className="flex items-center gap-3 z-50 group"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
             <span className="text-white font-bold text-sm tracking-wider">AN</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-base tracking-tight text-white group-hover:text-purple-300 transition-colors">
+            <span className="font-bold text-base tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
               Abid Nawaz
             </span>
-            <span className="text-[11px] text-purple-400 font-medium tracking-wide">
+            <span className="text-[11px] text-indigo-600 font-semibold tracking-wide">
               Full Stack Engineer
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 backdrop-blur-md">
+        <div className="hidden md:flex items-center gap-1 bg-slate-100/80 border border-slate-200/80 rounded-full px-3 py-1.5 backdrop-blur-md">
           {navItems.map((item, index) => (
             <a
               key={index}
@@ -79,7 +74,7 @@ export default function Navbar() {
                 scrollToSection();
                 setActiveLink(item.href);
               }}
-              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white rounded-full transition-all duration-200 hover:bg-white/10"
+              className="px-3.5 py-1.5 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-white rounded-full transition-all duration-200"
             >
               {item.label}
             </a>
@@ -96,55 +91,23 @@ export default function Navbar() {
         </a>
 
         {/* Mobile Menu Button */}
-        <motion.button
-          className="md:hidden z-50 p-2 relative"
+        <button
+          className="md:hidden z-50 p-2 relative text-slate-800"
           onClick={() => setIsOpen(!isOpen)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 400 }}
         >
-          <motion.div
-            animate={{ rotate: isOpen ? 90 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="w-6 h-6 text-white" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="w-6 h-6 text-white" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        </motion.button>
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 top-16 bg-gradient-to-b from-black/98 via-black/95 to-purple-950/80 backdrop-blur-2xl overflow-y-auto"
-            initial={{ opacity: 0, y: -20, scaleY: 0.95 }}
-            animate={{ opacity: 1, y: 0, scaleY: 1 }}
-            exit={{ opacity: 0, y: -20, scaleY: 0.95 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            style={{ originY: 0 }}
+            className="md:hidden fixed inset-0 top-16 bg-white/95 backdrop-blur-2xl overflow-y-auto border-t border-slate-200"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
           >
             {/* Animated background elements */}
             <div className="absolute inset-0 pointer-events-none">
