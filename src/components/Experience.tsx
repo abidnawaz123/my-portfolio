@@ -110,12 +110,12 @@ export default function Experience() {
             >
               {/* Timeline vertical bar */}
               {index !== experiences.length - 1 && (
-                <div className="absolute left-4 md:left-6 top-10 bottom-0 w-0.5 bg-gradient-to-b from-indigo-300 via-indigo-200 to-transparent" />
+                <div className="absolute left-4 md:left-6 top-10 bottom-0 w-0.5 bg-gradient-to-b from-indigo-300 via-indigo-200 to-transparent dark:from-indigo-500/50 dark:via-indigo-500/20 dark:to-transparent" />
               )}
 
               {/* Timeline marker */}
-              <div className="absolute left-1.5 md:left-3.5 top-1.5 w-6 h-6 rounded-full bg-white border-2 border-indigo-600 flex items-center justify-center shadow-md shadow-indigo-200">
-                <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <div className="absolute left-1.5 md:left-3.5 top-1.5 w-6 h-6 rounded-full bg-white dark:bg-slate-900 border-2 border-indigo-600 dark:border-indigo-400 flex items-center justify-center shadow-md shadow-indigo-200 dark:shadow-indigo-900/40">
+                <div className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400" />
               </div>
 
               {/* Content card */}
@@ -124,17 +124,17 @@ export default function Experience() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4 pb-4 border-b border-slate-200">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4 pb-4 border-b border-slate-200 dark:border-slate-800">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {exp.role}
                     </h3>
-                    <p className="text-slate-700 font-semibold text-sm sm:text-base">
+                    <p className="text-slate-700 dark:text-slate-300 font-semibold text-sm sm:text-base">
                       {exp.company}
                     </p>
                   </div>
                   <div className="md:text-right">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
                       {exp.duration} ({exp.years} years)
                     </span>
                   </div>
@@ -144,9 +144,9 @@ export default function Experience() {
                   {exp.responsibilities.map((resp, respIndex) => (
                     <li
                       key={respIndex}
-                      className="flex items-start gap-2.5 text-slate-600 text-sm md:text-base"
+                      className="flex items-start gap-2.5 text-slate-600 dark:text-slate-300 text-sm md:text-base"
                     >
-                      <ChevronRight className="w-4 h-4 text-indigo-600 flex-shrink-0 mt-1" />
+                      <ChevronRight className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-1" />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -162,10 +162,10 @@ export default function Experience() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 glass-card p-6 md:p-8 text-center"
         >
-          <p className="text-lg text-slate-800 font-semibold">
+          <p className="text-lg text-slate-800 dark:text-slate-200 font-semibold">
             Total Experience: <span className="gradient-text text-xl">4 Years</span>
           </p>
-          <p className="text-slate-600 text-sm mt-1">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
             Building beautiful, scalable applications with passion for code quality and user experience
           </p>
         </motion.div>

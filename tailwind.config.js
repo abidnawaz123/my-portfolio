@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -9,8 +10,8 @@ export default {
       colors: {
         primary: "#6366f1",
         secondary: "#8b5cf6",
-        dark: "#0f172a",
-        "dark-secondary": "#1e293b",
+        dark: "#0b0f19",
+        "dark-secondary": "#111827",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in",

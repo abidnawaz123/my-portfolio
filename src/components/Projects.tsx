@@ -51,16 +51,7 @@ export default function Projects() {
   };
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <motion.div
-          className="absolute top-40 right-20 w-48 h-48 rounded-full border border-purple-500/20 opacity-20"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        />
-      </div>
-
+    <section id="projects" ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="max-w-5xl mx-auto w-full">
         <motion.div
           className="mb-16"
@@ -94,23 +85,23 @@ export default function Projects() {
               variants={itemVariants}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="glass-card p-6 md:p-8 overflow-hidden group hover:border-indigo-300"
+              className="glass-card p-6 md:p-8 overflow-hidden group hover:border-indigo-300 dark:hover:border-indigo-500"
             >
               <div className="relative z-10">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-600 text-base leading-relaxed max-w-2xl">
+                    <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed max-w-2xl">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="mb-5 p-3.5 rounded-xl border border-indigo-200 bg-indigo-50/80">
-                  <p className="text-indigo-900 text-sm font-medium flex items-center gap-2">
-                    <span className="text-indigo-600">✨</span>
+                <div className="mb-5 p-3.5 rounded-xl border border-indigo-200 dark:border-indigo-500/30 bg-indigo-50/80 dark:bg-indigo-950/40">
+                  <p className="text-indigo-900 dark:text-indigo-200 text-sm font-medium flex items-center gap-2">
+                    <span className="text-indigo-600 dark:text-indigo-400">✨</span>
                     {project.highlight}
                   </p>
                 </div>
@@ -141,7 +132,7 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 glass-card p-8 text-center"
         >
-          <p className="text-lg text-slate-700 mb-6">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
             Looking for more projects? Check out my GitHub profile.
           </p>
           <motion.a

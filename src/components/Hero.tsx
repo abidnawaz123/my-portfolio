@@ -22,14 +22,13 @@ export default function Hero() {
     },
   };
 
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden pt-16">
       {/* Enhanced animated background */}
       <div className="absolute inset-0 -z-10">
         {/* Main gradient orbs */}
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-purple-500/15 dark:bg-purple-600/20 rounded-full blur-3xl"
           animate={{
             x: ["0px", "30px", "-30px", "0px"],
             y: ["0px", "-50px", "50px", "0px"],
@@ -37,7 +36,7 @@ export default function Hero() {
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-72 h-72 bg-blue-500/15 dark:bg-blue-600/20 rounded-full blur-3xl"
           animate={{
             x: ["0px", "-40px", "40px", "0px"],
             y: ["0px", "40px", "-40px", "0px"],
@@ -45,30 +44,15 @@ export default function Hero() {
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
           animate={{
-            scale: [1, 1.3, 1],
-            x: ["-50%", "-60%", "-40%", "-50%"],
-            y: ["-50%", "-30%", "-70%", "-50%"],
+            scale: [1, 1.2, 1],
+            x: ["-50%", "-55%", "-45%", "-50%"],
+            y: ["-50%", "-40%", "-60%", "-50%"],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
-
-        {/* Top gradient bar */}
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white/5 to-transparent"></div>
       </div>
-
-      {/* Floating accent elements */}
-      <motion.div
-        className="absolute top-1/4 right-20 w-20 h-20 border border-purple-400/20 rounded-full"
-        animate={{ rotate: 360, scale: [1, 1.1, 1] }}
-        transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, scale: { duration: 4, repeat: Infinity } }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-1/4 w-32 h-32 border border-blue-400/20 rounded-lg"
-        animate={{ rotate: -360, x: [0, 20, -20, 0] }}
-        transition={{ rotate: { duration: 25, repeat: Infinity, ease: "linear" }, x: { duration: 6, repeat: Infinity } }}
-      />
 
       <motion.div
         className="max-w-4xl mx-auto text-center z-10"
@@ -82,7 +66,7 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-white tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white"
         >
           <span className="gradient-text">
             Abid Nawaz
@@ -91,14 +75,14 @@ export default function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-slate-700 mb-6 font-medium"
+          className="text-xl md:text-2xl text-slate-800 dark:text-slate-200 mb-6 font-medium"
         >
           Full Stack Engineer | Frontend Specialist | ReactJs | VueJs | NextJs
         </motion.p>
 
         <motion.p
           variants={itemVariants}
-          className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Building full-stack web applications with 4 years of experience. Specializing in React, Next.js, Vue.js and Python Django with a passion for creating seamless user experiences.
         </motion.p>
@@ -109,7 +93,7 @@ export default function Hero() {
         >
           <motion.a
             href="#projects"
-            className="btn button-primary"
+            className="button-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -117,7 +101,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="#contact"
-            className="btn button-outline"
+            className="button-outline"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -146,7 +130,7 @@ export default function Hero() {
             href="https://github.com/abidnawaz123"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-indigo-600 transition-colors"
+            className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             whileHover={{ scale: 1.15, y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -158,7 +142,7 @@ export default function Hero() {
             href="https://www.linkedin.com/in/abid-nawaz-b99201290"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-indigo-600 transition-colors"
+            className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             whileHover={{ scale: 1.15, y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -168,7 +152,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="mailto:youthone01@gmail.com"
-            className="text-slate-600 hover:text-indigo-600 transition-colors"
+            className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             whileHover={{ scale: 1.15, y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -185,9 +169,9 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <motion.div whileHover={{ scale: 1.2 }}>
-          <ArrowDown className="w-6 h-6 text-purple-400" />
-        </motion.div>
+        <a href="#about" aria-label="Scroll to About">
+          <ArrowDown className="w-6 h-6 text-indigo-600 dark:text-indigo-400 hover:scale-125 transition-transform" />
+        </a>
       </motion.div>
     </section>
   );

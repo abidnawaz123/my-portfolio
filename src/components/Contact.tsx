@@ -23,9 +23,9 @@ export default function Contact() {
       whileHover={{ scale: 1.1, y: -2 }}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
-      className="icon-ring-glow"
+      className="icon-ring-glow text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
     >
-      <Icon className="w-5 h-5 text-slate-700" />
+      <Icon className="w-5 h-5" />
     </motion.a>
   );
 
@@ -40,7 +40,7 @@ export default function Contact() {
       {/* Animated background gradient elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full mix-blend-screen blur-3xl"
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/20 dark:bg-purple-600/10 rounded-full mix-blend-screen blur-3xl"
           animate={{
             x: ["0px", "30px", "-30px", "0px"],
             y: ["0px", "-50px", "50px", "0px"],
@@ -49,7 +49,7 @@ export default function Contact() {
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen blur-3xl"
+          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-600/20 dark:bg-blue-600/10 rounded-full mix-blend-screen blur-3xl"
           animate={{
             x: ["0px", "-40px", "40px", "0px"],
             y: ["0px", "40px", "-40px", "0px"],
@@ -94,16 +94,16 @@ export default function Contact() {
             {contactItems.map((item, idx) => (
               <div key={idx}>
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
-                  <div className="p-3 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600">
+                  <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-500 text-sm">{item.title}</h3>
+                    <h3 className="font-semibold text-slate-500 dark:text-slate-400 text-sm">{item.title}</h3>
                     <a
                       href={item.href}
                       target={item.title !== "Email" ? "_blank" : undefined}
                       rel={item.title !== "Email" ? "noopener noreferrer" : undefined}
-                      className="text-slate-900 hover:text-indigo-600 font-bold text-base sm:text-lg transition-colors inline-block mt-0.5"
+                      className="text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-bold text-base sm:text-lg transition-colors inline-block mt-0.5"
                     >
                       {item.content}
                     </a>
@@ -111,7 +111,7 @@ export default function Contact() {
                 </div>
 
                 {idx !== contactItems.length - 1 && (
-                  <div className="h-px bg-slate-200 my-6" />
+                  <div className="h-px bg-slate-200 dark:bg-slate-800 my-6" />
                 )}
               </div>
             ))}
@@ -166,8 +166,8 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          <p className="text-slate-600 font-medium">
-            Based in <span className="text-indigo-600 font-bold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
+          <p className="text-slate-600 dark:text-slate-400 font-medium">
+            Based in <span className="text-indigo-600 dark:text-indigo-400 font-bold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
           </p>
         </motion.div>
       </div>

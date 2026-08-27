@@ -60,16 +60,7 @@ export default function About() {
   };
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <motion.div
-          className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full border border-purple-500/10 opacity-5"
-          animate={{ rotate: 360, y: [0, 30, 0] }}
-          transition={{ rotate: { duration: 30, repeat: Infinity, ease: "linear" }, y: { duration: 4, repeat: Infinity } }}
-        />
-      </div>
-
+    <section id="about" ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="max-w-4xl mx-auto w-full">
         <motion.div
           className="mb-16"
@@ -105,7 +96,7 @@ export default function About() {
             ].map((text, idx) => (
               <p
                 key={idx}
-                className="text-lg text-slate-700 leading-relaxed"
+                className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed"
               >
                 {text}
               </p>
@@ -123,10 +114,10 @@ export default function About() {
             ].map((stack, idx) => (
               <div
                 key={idx}
-                className="space-y-1.5 p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 hover:border-indigo-300 hover:bg-indigo-50/50 transition-all duration-200"
+                className="space-y-1.5 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/40 transition-all duration-200"
               >
-                <h3 className="text-base font-bold text-slate-900">{stack.title}</h3>
-                <p className="text-sm text-slate-600">{stack.content}</p>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">{stack.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">{stack.content}</p>
               </div>
             ))}
           </motion.div>
@@ -157,7 +148,7 @@ export default function About() {
                   inView={inView}
                 />
               </div>
-              <p className="text-slate-600 font-medium text-sm sm:text-base">
+              <p className="text-slate-600 dark:text-slate-300 font-medium text-sm sm:text-base">
                 {stat.label}
               </p>
             </motion.div>

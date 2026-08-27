@@ -54,16 +54,7 @@ export default function Skills() {
   };
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <motion.div
-          className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full border border-blue-500/5"
-          animate={{ rotate: 360, scale: [1, 1.1, 1] }}
-          transition={{ rotate: { duration: 35, repeat: Infinity, ease: "linear" }, scale: { duration: 5, repeat: Infinity } }}
-        />
-      </div>
-
+    <section id="skills" ref={ref} className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="max-w-5xl mx-auto w-full">
         <motion.div
           className="mb-16"
@@ -101,9 +92,9 @@ export default function Skills() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="icon-ring-glow">
-                  <category.icon className="w-5 h-5 text-indigo-600" />
+                  <category.icon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                   {category.title}
                 </h3>
               </div>
@@ -128,7 +119,7 @@ export default function Skills() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 glass-card p-8 text-center"
         >
-          <p className="text-lg text-slate-700 mb-4">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
             I'm always learning and exploring new technologies to stay at the forefront of web development.
           </p>
           <motion.div
