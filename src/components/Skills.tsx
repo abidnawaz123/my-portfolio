@@ -101,9 +101,9 @@ export default function Skills() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="icon-ring-glow">
-                  <category.icon className="w-5 h-5 text-purple-400" />
+                  <category.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
                   {category.title}
                 </h3>
               </div>
@@ -129,7 +129,7 @@ export default function Skills() {
           className="mt-16 glass-card-float p-8 text-center"
           whileHover={{ scale: 1.02, y: -5 }}
         >
-          <p className="text-lg text-slate-300 mb-4">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
             I'm always learning and exploring new technologies to stay at the forefront of web development.
           </p>
           <motion.div

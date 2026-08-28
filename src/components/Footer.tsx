@@ -24,7 +24,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black/60 backdrop-blur-xl border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-slate-100/80 dark:bg-black/60 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <motion.div
@@ -49,14 +49,14 @@ export default function Footer() {
             transition={{ duration: 0.3 }}
           >
             <motion.h3
-              className="text-2xl font-semibold text-white mb-4"
+              className="text-2xl font-semibold text-slate-900 dark:text-white mb-4"
               animate={{ opacity: [1, 0.8, 1] }}
               transition={{ duration: 4, repeat: Infinity }}
             >
               Abid Nawaz
             </motion.h3>
             <motion.p
-              className="text-slate-400"
+              className="text-slate-600 dark:text-slate-400"
               initial={{ opacity: 0.7 }}
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -67,8 +67,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-slate-400">
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-slate-600 dark:text-slate-400 font-medium dark:font-normal">
               {["About", "Projects", "Experience", "Contact"].map((link, idx) => (
                 <motion.li
                   key={idx}
@@ -79,7 +79,7 @@ export default function Footer() {
                 >
                   <motion.a
                     href={`#${link.toLowerCase()}`}
-                    className="hover:text-white transition-colors inline-block"
+                    className="hover:text-purple-600 dark:hover:text-white transition-colors inline-block"
                     whileHover={{ scale: 1.05 }}
                   >
                     {link}
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-white mb-4">Follow</h4>
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">Follow</h4>
             <div className="flex gap-4">
               {[
                 { name: "GitHub", url: "https://github.com/abidnawaz123" },
@@ -103,7 +103,7 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-purple-300 transition-colors text-sm font-medium"
+                  className="text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-300 transition-colors text-sm font-medium"
                 >
                   {social.name}
                 </a>
@@ -113,14 +113,14 @@ export default function Footer() {
         </motion.div>
 
         <motion.div
-          className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"
+          className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent mb-8"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8 }}
         />
 
         <motion.div
-          className="flex flex-col md:flex-row items-center justify-between text-slate-400 text-sm"
+          className="flex flex-col md:flex-row items-center justify-between text-slate-600 dark:text-slate-400 text-sm font-medium dark:font-normal"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}

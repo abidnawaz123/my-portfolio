@@ -99,18 +99,18 @@ export default function Projects() {
               <div className="relative z-10">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-300 text-base leading-relaxed max-w-2xl">
+                    <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed max-w-2xl">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="mb-5 p-3.5 rounded-xl border border-purple-500/20 bg-purple-500/10">
-                  <p className="text-purple-200 text-sm font-medium flex items-center gap-2">
-                    <span className="text-purple-400">✨</span>
+                  <p className="text-purple-900 dark:text-purple-200 text-sm font-medium flex items-center gap-2">
+                    <span className="text-purple-600 dark:text-purple-400">✨</span>
                     {project.highlight}
                   </p>
                 </div>
@@ -141,7 +141,7 @@ export default function Projects() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16 glass-card p-8 text-center"
         >
-          <p className="text-lg text-slate-300 mb-6">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
             Looking for more projects? Check out my GitHub profile.
           </p>
           <motion.a

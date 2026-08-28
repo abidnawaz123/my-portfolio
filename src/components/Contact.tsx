@@ -25,7 +25,7 @@ export default function Contact() {
       transition={{ duration: 0.2 }}
       className="icon-ring-glow"
     >
-      <Icon className="w-5 h-5 text-white" />
+      <Icon className="w-6 h-6 text-slate-800 dark:text-white" />
     </motion.a>
   );
 
@@ -94,16 +94,16 @@ export default function Contact() {
             {contactItems.map((item, idx) => (
               <div key={idx}>
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
-                  <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                  <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-200 text-sm">{item.title}</h3>
+                    <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{item.title}</h3>
                     <a
                       href={item.href}
                       target={item.title !== "Email" ? "_blank" : undefined}
                       rel={item.title !== "Email" ? "noopener noreferrer" : undefined}
-                      className="text-white hover:text-purple-300 font-medium text-base sm:text-lg transition-colors inline-block mt-0.5"
+                      className="text-slate-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-300 font-medium text-base sm:text-lg transition-colors inline-block mt-0.5"
                     >
                       {item.content}
                     </a>
@@ -111,7 +111,7 @@ export default function Contact() {
                 </div>
 
                 {idx !== contactItems.length - 1 && (
-                  <div className="h-px bg-white/10 my-6" />
+                  <div className="h-px bg-slate-200/60 dark:bg-white/10 my-6" />
                 )}
               </div>
             ))}
@@ -167,11 +167,11 @@ export default function Contact() {
           </motion.div>
 
           <motion.p
-            className="text-slate-400"
+            className="text-slate-600 dark:text-slate-400 font-medium dark:font-normal"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Based in <span className="text-purple-400 font-semibold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
+            Based in <span className="text-purple-600 dark:text-purple-400 font-semibold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
           </motion.p>
         </motion.div>
       </div>

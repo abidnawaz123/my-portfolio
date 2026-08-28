@@ -124,17 +124,17 @@ export default function Experience() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4 pb-4 border-b border-white/5">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4 pb-4 border-b border-slate-200/50 dark:border-white/5">
                   <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
                       {exp.role}
                     </h3>
-                    <p className="text-slate-300 font-medium text-sm sm:text-base">
+                    <p className="text-slate-700 dark:text-slate-300 font-medium text-sm sm:text-base">
                       {exp.company}
                     </p>
                   </div>
                   <div className="md:text-right">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/20">
                       {exp.duration} ({exp.years} years)
                     </span>
                   </div>
@@ -144,9 +144,9 @@ export default function Experience() {
                   {exp.responsibilities.map((resp, respIndex) => (
                     <li
                       key={respIndex}
-                      className="flex items-start gap-2.5 text-slate-300 text-sm md:text-base"
+                      className="flex items-start gap-2.5 text-slate-700 dark:text-slate-300 text-sm md:text-base"
                     >
-                      <ChevronRight className="w-4 h-4 text-purple-400 flex-shrink-0 mt-1" />
+                      <ChevronRight className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-1" />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -162,10 +162,10 @@ export default function Experience() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 glass-card p-6 md:p-8 text-center"
         >
-          <p className="text-lg text-slate-200 font-medium">
-            Total Experience: <span className="gradient-text text-xl">4 Years</span>
+          <p className="text-lg text-slate-800 dark:text-slate-200 font-medium">
+            Total Experience: <span className="gradient-text text-xl font-bold">4 Years</span>
           </p>
-          <p className="text-slate-400 text-sm mt-1">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
             Building beautiful, scalable applications with passion for code quality and user experience
           </p>
         </motion.div>
