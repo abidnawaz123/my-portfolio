@@ -25,7 +25,7 @@ export default function Contact() {
       transition={{ type: "spring", stiffness: 300 }}
       className="icon-ring-glow"
     >
-      <Icon className="w-6 h-6 text-white" />
+      <Icon className="w-6 h-6 text-slate-800 dark:text-white" />
     </motion.a>
   );
 
@@ -125,15 +125,15 @@ export default function Contact() {
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: idx * 0.3 }}
                   >
-                    <item.icon className="w-8 h-8 text-purple-400 flex-shrink-0" />
+                    <item.icon className="w-8 h-8 text-purple-600 dark:text-purple-400 flex-shrink-0" />
                   </motion.div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                    <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-2">{item.title}</h3>
                     <a
                       href={item.href}
                       target={item.title !== "Email" ? "_blank" : undefined}
                       rel={item.title !== "Email" ? "noopener noreferrer" : undefined}
-                      className="text-slate-300 hover:text-purple-300 transition-colors hover:scale-105 inline-block"
+                      className="text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-300 transition-colors hover:scale-105 inline-block font-medium dark:font-normal"
                     >
                       {item.content}
                     </a>
@@ -202,11 +202,11 @@ export default function Contact() {
           </motion.div>
 
           <motion.p
-            className="text-slate-400"
+            className="text-slate-600 dark:text-slate-400 font-medium dark:font-normal"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Based in <span className="text-purple-400 font-semibold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
+            Based in <span className="text-purple-600 dark:text-purple-400 font-semibold">Bahawalpur, Pakistan</span> • Available for remote opportunities worldwide
           </motion.p>
         </motion.div>
       </div>

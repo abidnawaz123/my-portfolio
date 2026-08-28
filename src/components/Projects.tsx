@@ -108,14 +108,14 @@ export default function Projects() {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
                   <div>
                     <motion.h3
-                      className="text-2xl md:text-3xl font-semibold text-white mb-3 group-hover:gradient-text transition-all duration-300"
+                      className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white mb-3 group-hover:gradient-text transition-all duration-300"
                       animate={{ opacity: [1, 0.8, 1] }}
                       transition={{ duration: 5, repeat: Infinity }}
                     >
                       {project.title}
                     </motion.h3>
                     <motion.p
-                      className="text-slate-300 text-lg leading-relaxed max-w-2xl"
+                      className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed max-w-2xl"
                       initial={{ opacity: 0.7 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -126,13 +126,13 @@ export default function Projects() {
                 </div>
 
                 <motion.div
-                  className="mb-6 p-4 rounded-xl border border-white/10 bg-white/5"
-                  whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+                  className="mb-6 p-4 rounded-xl border border-slate-200/80 dark:border-white/10 bg-slate-100/70 dark:bg-white/5"
+                  whileHover={{ scale: 1.02, backgroundColor: "rgba(139, 92, 246, 0.08)" }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-slate-200 font-semibold flex items-start gap-2">
+                  <p className="text-slate-800 dark:text-slate-200 font-semibold flex items-start gap-2">
                     <motion.span
-                      className="text-purple-400 mt-1"
+                      className="text-purple-600 dark:text-purple-400 mt-1"
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
@@ -188,7 +188,7 @@ export default function Projects() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16 glass-card p-8 text-center"
         >
-          <p className="text-lg text-slate-300 mb-6">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
             Looking for more projects? Check out my GitHub profile.
           </p>
           <motion.a

@@ -152,14 +152,14 @@ export default function Experience() {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                     <div>
                       <motion.h3
-                        className="text-2xl font-semibold text-white mb-1 group-hover:gradient-text transition-all duration-300"
+                        className="text-2xl font-semibold text-slate-900 dark:text-white mb-1 group-hover:gradient-text transition-all duration-300"
                         animate={{ opacity: [1, 0.8, 1] }}
                         transition={{ duration: 5, repeat: Infinity }}
                       >
                         {exp.role}
                       </motion.h3>
                       <motion.p
-                        className="text-slate-300 font-semibold"
+                        className="text-slate-800 dark:text-slate-300 font-semibold"
                         initial={{ opacity: 0.7 }}
                         whileHover={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
@@ -168,7 +168,7 @@ export default function Experience() {
                       </motion.p>
                     </div>
                     <div className="text-right">
-                      <p className="text-slate-400 text-sm">{exp.duration}</p>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm">{exp.duration}</p>
                       <motion.p
                         className="text-lg font-semibold gradient-text"
                         animate={{ scale: [1, 1.05, 1] }}
@@ -197,13 +197,13 @@ export default function Experience() {
                           visible: { opacity: 1, x: 0 },
                         }}
                         transition={{ duration: 0.5 }}
-                        className="flex items-start gap-3 text-slate-300 hover:text-slate-100 transition-colors duration-300"
+                        className="flex items-start gap-3 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-300"
                       >
                         <motion.span
                           animate={{ scale: [1, 1.2, 1] }}
                           transition={{ duration: 2, repeat: Infinity, delay: respIndex * 0.2 }}
                         >
-                          <ChevronRight className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                          <ChevronRight className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
                         </motion.span>
                         <span>{resp}</span>
                       </motion.li>
@@ -222,7 +222,7 @@ export default function Experience() {
           className="mt-16 glass-card-float p-8 text-center"
           whileHover={{ scale: 1.02 }}
         >
-          <p className="text-lg text-slate-300">
+          <p className="text-lg text-slate-800 dark:text-slate-300">
             Total Experience: <motion.span
               className="gradient-text font-bold text-2xl inline-block"
               animate={{ scale: [1, 1.05, 1] }}
@@ -231,7 +231,7 @@ export default function Experience() {
               4 Years
             </motion.span>
           </p>
-          <p className="text-slate-400 mt-2">
+          <p className="text-slate-600 dark:text-slate-400 mt-2">
             Building beautiful, scalable applications with passion for code quality and user experience
           </p>
         </motion.div>

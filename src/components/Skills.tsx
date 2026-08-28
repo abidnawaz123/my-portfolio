@@ -120,7 +120,7 @@ export default function Skills() {
                   <category.icon className="w-6 h-6" />
                 </motion.span>
                 <motion.h3
-                  className="text-2xl font-bold text-white group-hover:gradient-text transition-all duration-300"
+                  className="text-2xl font-bold text-slate-900 dark:text-white group-hover:gradient-text transition-all duration-300"
                   animate={{ opacity: [1, 0.85, 1] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
@@ -164,7 +164,7 @@ export default function Skills() {
           className="mt-16 glass-card-float p-8 text-center"
           whileHover={{ scale: 1.02, y: -5 }}
         >
-          <p className="text-lg text-slate-300 mb-4">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
             I'm always learning and exploring new technologies to stay at the forefront of web development.
           </p>
           <motion.div

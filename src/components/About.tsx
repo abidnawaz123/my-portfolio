@@ -109,7 +109,7 @@ export default function About() {
             ].map((text, idx) => (
               <motion.p
                 key={idx}
-                className="text-lg text-slate-300 leading-relaxed"
+                className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
@@ -132,14 +132,14 @@ export default function About() {
             ].map((stack, idx) => (
               <motion.div
                 key={idx}
-                className="space-y-4 p-4 rounded-lg border border-white/5 hover:border-purple-400/30 transition-all duration-300"
+                className="space-y-4 p-4 rounded-lg border border-slate-200/60 dark:border-white/5 hover:border-purple-400/30 transition-all duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ backgroundColor: "rgba(139, 92, 246, 0.05)" }}
               >
-                <h3 className="text-xl font-semibold text-white">{stack.title}</h3>
-                <p className="text-slate-300">{stack.content}</p>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{stack.title}</h3>
+                <p className="text-slate-700 dark:text-slate-300">{stack.content}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -178,7 +178,7 @@ export default function About() {
                 />
               </motion.div>
               <motion.p
-                className="text-slate-400"
+                className="text-slate-600 dark:text-slate-400 font-medium dark:font-normal"
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
               >

@@ -1,11 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, Sun, Moon } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [, setActiveLink] = useState("home");
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +33,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-white/10"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, type: "spring", stiffness: 300 }}
@@ -40,7 +42,11 @@ export default function Navbar() {
       <motion.div
         className="absolute inset-0 -z-10"
         animate={{
-          backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)",
+          backgroundColor: isScrolled
+            ? theme === "dark"
+              ? "rgba(7, 9, 15, 0.75)"
+              : "rgba(255, 255, 255, 0.85)"
+            : "rgba(0, 0, 0, 0)",
           backdropFilter: isScrolled ? "blur(24px)" : "blur(0px)",
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -87,7 +93,7 @@ export default function Navbar() {
               Abid
             </motion.span>
             <motion.span
-              className="hidden sm:inline text-xs text-purple-400 font-semibold"
+              className="hidden sm:inline text-xs text-purple-600 dark:text-purple-400 font-semibold"
               animate={{ opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
             >
@@ -115,7 +121,7 @@ export default function Navbar() {
               <motion.div
                 className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 -z-10"
                 whileHover={{
-                  backgroundColor: "rgba(139, 92, 246, 0.15)",
+                  backgroundColor: theme === "dark" ? "rgba(139, 92, 246, 0.15)" : "rgba(139, 92, 246, 0.1)",
                   opacity: 1,
                 }}
                 initial={{ opacity: 0 }}
@@ -129,7 +135,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, scale: 0 }}
                   whileHover={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.2 }}
-                  className="text-purple-400"
+                  className="text-purple-600 dark:text-purple-400"
                 >
                   <Sparkles className="w-3 h-3" />
                 </motion.span>
@@ -137,7 +143,7 @@ export default function Navbar() {
 
               {/* Underline animation */}
               <motion.div
-                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full"
+                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
                 initial={{ width: 0, opacity: 0 }}
                 whileHover={{ width: "100%", opacity: 1 }}
                 transition={{ duration: 0.3 }}
@@ -146,68 +152,120 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <motion.a
-          href="mailto:youthone01@gmail.com"
-          className="hidden md:flex items-center gap-2 btn button-primary relative overflow-hidden"
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <motion.span
-            animate={{ x: [0, 5, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+        {/* Action Controls: Theme Toggle & Contact Button */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* Theme Toggle Button */}
+          <motion.button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2.5 rounded-xl border border-slate-200 dark:border-white/15 bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-slate-200 hover:border-purple-400 dark:hover:border-purple-400 transition-all duration-300 shadow-sm"
+            whileHover={{ scale: 1.1, rotate: theme === "dark" ? 45 : -45 }}
+            whileTap={{ scale: 0.9 }}
           >
-            📧
-          </motion.span>
-          <span>Contact</span>
-        </motion.a>
-
-        {/* Mobile Menu Button */}
-        <motion.button
-          className="md:hidden z-50 p-2 relative"
-          onClick={() => setIsOpen(!isOpen)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 400 }}
-        >
-          <motion.div
-            animate={{ rotate: isOpen ? 90 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
+            <AnimatePresence mode="wait" initial={false}>
+              {theme === "dark" ? (
                 <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
+                  key="sun"
+                  initial={{ scale: 0, rotate: -90, opacity: 0 }}
+                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                  exit={{ scale: 0, rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6 text-white" />
+                  <Sun className="w-5 h-5 text-amber-400" />
                 </motion.div>
               ) : (
                 <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
+                  key="moon"
+                  initial={{ scale: 0, rotate: 90, opacity: 0 }}
+                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                  exit={{ scale: 0, rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6 text-white" />
+                  <Moon className="w-5 h-5 text-indigo-600" />
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
-        </motion.button>
+          </motion.button>
+
+          {/* CTA Button */}
+          <motion.a
+            href="mailto:youthone01@gmail.com"
+            className="flex items-center gap-2 btn button-primary relative overflow-hidden"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              📧
+            </motion.span>
+            <span>Contact</span>
+          </motion.a>
+        </div>
+
+        {/* Mobile controls: Theme toggle + Menu button */}
+        <div className="flex md:hidden items-center gap-2 z-50">
+          <motion.button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-xl border border-slate-200 dark:border-white/15 bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-slate-200"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5 text-amber-400" />
+            ) : (
+              <Moon className="w-5 h-5 text-indigo-600" />
+            )}
+          </motion.button>
+
+          <motion.button
+            className="p-2 relative"
+            onClick={() => setIsOpen(!isOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <motion.div
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative"
+            >
+              <AnimatePresence mode="wait">
+                {isOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X className="w-6 h-6 text-slate-900 dark:text-white" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu className="w-6 h-6 text-slate-900 dark:text-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </motion.button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 top-16 bg-gradient-to-b from-black/98 via-black/95 to-purple-950/80 backdrop-blur-2xl overflow-y-auto"
+            className="md:hidden fixed inset-0 top-16 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl overflow-y-auto"
             initial={{ opacity: 0, y: -20, scaleY: 0.95 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -20, scaleY: 0.95 }}
@@ -229,7 +287,7 @@ export default function Navbar() {
             </div>
 
             <motion.div
-              className="flex flex-col items-center justify-start gap-3 p-8 mt-8 relative z-10"
+              className="flex flex-col items-center justify-start gap-3 p-8 mt-4 relative z-10"
               initial="hidden"
               animate="visible"
               variants={{
@@ -246,13 +304,13 @@ export default function Navbar() {
                     scrollToSection();
                     setActiveLink(item.href);
                   }}
-                  className="nav-link text-lg relative group w-full text-center py-3 rounded-lg"
+                  className="nav-link text-lg relative group w-full text-center py-3 rounded-lg text-slate-800 dark:text-slate-200"
                   initial={{ opacity: 0, y: 20, x: -20 }}
                   animate={{ opacity: 1, y: 0, x: 0 }}
                   transition={{ duration: 0.4 }}
                   whileHover={{
                     x: 10,
-                    backgroundColor: "rgba(139, 92, 246, 0.1)",
+                    backgroundColor: theme === "dark" ? "rgba(139, 92, 246, 0.1)" : "rgba(139, 92, 246, 0.05)",
                   }}
                 >
                   <motion.div>
@@ -271,7 +329,7 @@ export default function Navbar() {
 
               <motion.a
                 href="mailto:youthone01@gmail.com"
-                className="mt-4 btn button-primary w-full text-center"
+                className="mt-2 btn button-primary w-full text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navItems.length * 0.08 + 0.2 }}
@@ -293,3 +351,4 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+
