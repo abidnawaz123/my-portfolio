@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Send, type LucideIcon } from "lucide-react";
 
 export default function Contact() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -15,14 +15,14 @@ export default function Contact() {
     },
   };
 
-  const SocialLink = ({ icon: Icon, href }: { icon: any, href: string, label?: string }) => (
+  const SocialLink = ({ icon: Icon, href }: { icon: LucideIcon, href: string, label?: string }) => (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ scale: 1.2, rotate: 10 }}
-      whileTap={{ scale: 0.9 }}
-      transition={{ type: "spring", stiffness: 300 }}
+      whileHover={{ scale: 1.1, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.2 }}
       className="icon-ring-glow"
     >
       <Icon className="w-6 h-6 text-slate-800 dark:text-white" />
@@ -73,82 +73,47 @@ export default function Contact() {
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-12"
         >
-          <motion.p className="badge mb-6" whileHover={{ scale: 1.05 }}>
+          <p className="badge mb-4">
             Get In Touch
-          </motion.p>
-          <motion.h2
-            className="section-title mb-4"
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
+          </p>
+          <h2 className="section-title mb-4">
             Let's Connect
-          </motion.h2>
-          <motion.p
-            className="section-subtitle mb-12 mx-auto"
-            initial={{ opacity: 0.7 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
+          </h2>
+          <p className="section-subtitle mx-auto">
             I'm always open to new opportunities, collaborations, and interesting projects. Feel free to reach out!
-          </motion.p>
+          </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="glass-card-float p-8 md:p-12 mb-12 overflow-hidden group"
-          whileHover={{ scale: 1.02 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="glass-card p-6 md:p-10 mb-10 overflow-hidden"
         >
-          {/* Shimmer overlay */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-            initial={{ x: "-100%" }}
-            whileHover={{ x: "100%" }}
-            transition={{ duration: 0.8 }}
-          />
-
-          <div className="space-y-6 relative z-10">
+          <div className="space-y-6">
             {contactItems.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-              >
-                <motion.div
-                  className="flex flex-col md:flex-row items-center gap-6"
-                  whileHover={{ x: 8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: idx * 0.3 }}
-                  >
-                    <item.icon className="w-8 h-8 text-purple-600 dark:text-purple-400 flex-shrink-0" />
-                  </motion.div>
+              <div key={idx}>
+                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
+                  <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400">
+                    <item.icon className="w-6 h-6" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-2">{item.title}</h3>
+                    <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{item.title}</h3>
                     <a
                       href={item.href}
                       target={item.title !== "Email" ? "_blank" : undefined}
                       rel={item.title !== "Email" ? "noopener noreferrer" : undefined}
-                      className="text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-300 transition-colors hover:scale-105 inline-block font-medium dark:font-normal"
+                      className="text-slate-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-300 font-medium text-base sm:text-lg transition-colors inline-block mt-0.5"
                     >
                       {item.content}
                     </a>
                   </div>
-                </motion.div>
+                </div>
 
                 {idx !== contactItems.length - 1 && (
-                  <motion.div
-                    className="h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent my-6"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ delay: idx * 0.15 }}
-                  />
+                  <div className="h-px bg-slate-200/60 dark:bg-white/10 my-6" />
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>

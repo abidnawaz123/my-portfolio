@@ -29,14 +29,10 @@ function AnimatedCounter({ value, suffix = "", decimals = 0, inView }: AnimatedC
   }, [inView, motionValue, value]);
 
   return (
-    <motion.span
-      className="gradient-text font-semibold"
-      animate={{ scale: [1, 1.05, 1] }}
-      transition={{ duration: 3, repeat: Infinity }}
-    >
+    <span className="gradient-text font-bold text-4xl sm:text-5xl">
       {display}
       {suffix}
-    </motion.span>
+    </span>
   );
 }
 
@@ -148,8 +144,8 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 grid md:grid-cols-3 gap-8"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-16 grid md:grid-cols-3 gap-6"
         >
           {[
             { value: 3.5, decimals: 1, suffix: "+", label: "Years Experience" },
@@ -158,32 +154,21 @@ export default function About() {
           ].map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center glass-card-float p-6 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              className="text-center glass-card-float p-6"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
             >
-              <motion.div
-                className="text-4xl mb-2"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
-              >
+              <div className="mb-2">
                 <AnimatedCounter
                   value={stat.value}
                   decimals={stat.decimals}
                   suffix={stat.suffix}
                   inView={inView}
                 />
-              </motion.div>
-              <motion.p
-                className="text-slate-600 dark:text-slate-400 font-medium dark:font-normal"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
-              >
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 font-medium text-sm sm:text-base">
                 {stat.label}
-              </motion.p>
+              </p>
             </motion.div>
           ))}
         </motion.div>

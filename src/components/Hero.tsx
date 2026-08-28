@@ -82,15 +82,11 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-semibold mb-6 text-slate-900 dark:text-white"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight"
         >
-          <motion.span
-            className="inline-block"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity, delay: 0.1 }}
-          >
+          <span className="gradient-text">
             Abid Nawaz
-          </motion.span>
+          </span>
         </motion.h1>
 
         <motion.p

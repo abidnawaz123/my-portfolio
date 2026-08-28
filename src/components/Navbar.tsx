@@ -33,10 +33,10 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-white/10 transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, type: "spring", stiffness: 300 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Smooth backdrop blur transition */}
       <motion.div
@@ -44,7 +44,7 @@ export default function Navbar() {
         animate={{
           backgroundColor: isScrolled
             ? theme === "dark"
-              ? "rgba(7, 9, 15, 0.75)"
+              ? "rgba(7, 9, 15, 0.85)"
               : "rgba(255, 255, 255, 0.85)"
             : "rgba(0, 0, 0, 0)",
           backdropFilter: isScrolled ? "blur(24px)" : "blur(0px)",
@@ -52,103 +52,44 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: "easeInOut" }}
       />
 
-      {/* Smooth animated border glow */}
-      <motion.div
-        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"
-        animate={{
-          opacity: isScrolled ? [0.3, 0.5, 0.3] : 0,
-        }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
+      {/* Subtle border glow */}
+      {isScrolled && (
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
+      )}
 
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between relative z-10">
         {/* Logo */}
-        <motion.a
+        <a
           href="#home"
-          className="flex items-center gap-2 z-50 group"
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400 }}
+          className="flex items-center gap-3 z-50 group"
         >
-          <motion.div
-            className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center shadow-lg relative"
-            animate={{
-              boxShadow: [
-                "0 0 20px rgba(99, 102, 241, 0.3)",
-                "0 0 40px rgba(139, 92, 246, 0.6)",
-                "0 0 20px rgba(99, 102, 241, 0.3)",
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-            whileHover={{ rotate: 360 }}
-          >
-            <span className="text-white font-bold text-lg">AN</span>
-          </motion.div>
-          <motion.div className="flex flex-col">
-            <motion.span
-              className="hidden sm:inline font-bold text-base gradient-text"
-              animate={{ opacity: [1, 0.8, 1] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              Abid
-            </motion.span>
-            <motion.span
-              className="hidden sm:inline text-xs text-purple-600 dark:text-purple-400 font-semibold"
-              animate={{ opacity: [0.6, 1, 0.6] }}
-              transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-            >
-              Developer
-            </motion.span>
-          </motion.div>
-        </motion.a>
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+            <span className="text-white font-bold text-sm tracking-wider">AN</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="font-bold text-base tracking-tight text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
+              Abid Nawaz
+            </span>
+            <span className="text-[11px] text-purple-600 dark:text-purple-400 font-semibold tracking-wide">
+              Full Stack Engineer
+            </span>
+          </div>
+        </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 rounded-full px-3 py-1.5 backdrop-blur-md">
           {navItems.map((item, index) => (
-            <motion.a
+            <a
               key={index}
               href={item.href}
               onClick={() => {
                 scrollToSection();
                 setActiveLink(item.href);
               }}
-              className="nav-link relative px-4 py-2 group"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-              transition={{ duration: 0.3 }}
+              className="px-3.5 py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-full transition-all duration-200 hover:bg-slate-200/60 dark:hover:bg-white/10"
             >
-              {/* Background hover effect */}
-              <motion.div
-                className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 -z-10"
-                whileHover={{
-                  backgroundColor: theme === "dark" ? "rgba(139, 92, 246, 0.15)" : "rgba(139, 92, 246, 0.1)",
-                  opacity: 1,
-                }}
-                initial={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-
-              {/* Text with animation */}
-              <motion.span className="relative flex items-center gap-1">
-                {item.label}
-                <motion.span
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-purple-600 dark:text-purple-400"
-                >
-                  <Sparkles className="w-3 h-3" />
-                </motion.span>
-              </motion.span>
-
-              {/* Underline animation */}
-              <motion.div
-                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
-                initial={{ width: 0, opacity: 0 }}
-                whileHover={{ width: "100%", opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
+              {item.label}
+            </a>
           ))}
         </div>
 
@@ -188,21 +129,13 @@ export default function Navbar() {
           </motion.button>
 
           {/* CTA Button */}
-          <motion.a
+          <a
             href="mailto:youthone01@gmail.com"
-            className="flex items-center gap-2 btn button-primary relative overflow-hidden"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400 }}
+            className="btn button-primary py-2 px-4 text-sm flex items-center gap-2"
           >
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              📧
-            </motion.span>
-            <span>Contact</span>
-          </motion.a>
+            <Sparkles className="w-4 h-4" />
+            <span>Hire Me</span>
+          </a>
         </div>
 
         {/* Mobile controls: Theme toggle + Menu button */}
@@ -304,7 +237,7 @@ export default function Navbar() {
                     scrollToSection();
                     setActiveLink(item.href);
                   }}
-                  className="nav-link text-lg relative group w-full text-center py-3 rounded-lg text-slate-800 dark:text-slate-200"
+                  className="nav-link text-lg relative group w-full text-center py-3 rounded-lg text-slate-800 dark:text-slate-200 font-medium"
                   initial={{ opacity: 0, y: 20, x: -20 }}
                   animate={{ opacity: 1, y: 0, x: 0 }}
                   transition={{ duration: 0.4 }}
@@ -329,20 +262,15 @@ export default function Navbar() {
 
               <motion.a
                 href="mailto:youthone01@gmail.com"
-                className="mt-2 btn button-primary w-full text-center"
+                className="mt-2 btn button-primary w-full text-center flex items-center justify-center gap-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navItems.length * 0.08 + 0.2 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <motion.span
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  📧
-                </motion.span>
-                Send Me an Email
+                <Sparkles className="w-4 h-4" />
+                <span>Hire Me</span>
               </motion.a>
             </motion.div>
           </motion.div>
@@ -351,4 +279,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-

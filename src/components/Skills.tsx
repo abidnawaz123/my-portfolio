@@ -95,64 +95,29 @@ export default function Skills() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="glass-card-float p-8 group overflow-hidden"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="glass-card p-6 md:p-8 group"
             >
-              {/* Animated glow on hover */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              />
-
-              <motion.div
-                className="flex items-center gap-4 mb-6 relative z-10"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <motion.span
-                  className="icon-ring-glow"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <category.icon className="w-6 h-6" />
-                </motion.span>
-                <motion.h3
-                  className="text-2xl font-bold text-slate-900 dark:text-white group-hover:gradient-text transition-all duration-300"
-                  animate={{ opacity: [1, 0.85, 1] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="icon-ring-glow">
+                  <category.icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
                   {category.title}
-                </motion.h3>
-              </motion.div>
+                </h3>
+              </div>
 
-              <motion.div
-                className="flex flex-wrap gap-3 relative z-10"
-                initial="hidden"
-                whileInView="visible"
-                variants={{
-                  visible: {
-                    transition: { staggerChildren: 0.06 },
-                  },
-                }}
-              >
+              <div className="flex flex-wrap gap-2.5">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.span
+                  <span
                     key={skillIndex}
-                    className="chip"
-                    variants={{
-                      hidden: { opacity: 0, scale: 0.8, y: 10 },
-                      visible: { opacity: 1, scale: 1, y: 0 },
-                    }}
-                    whileHover={{ scale: 1.12, rotate: 5 }}
-                    transition={{ delay: skillIndex * 0.06 }}
+                    className="chip cursor-default"
                   >
                     {skill}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

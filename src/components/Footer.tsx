@@ -96,22 +96,17 @@ export default function Footer() {
               {[
                 { name: "GitHub", url: "https://github.com/abidnawaz123" },
                 { name: "LinkedIn", url: "https://www.linkedin.com/in/abid-nawaz-b99201290" },
-                { name: "Twitter", url: "https://twitter.com" },
+                { name: "Email", url: "mailto:youthone01@gmail.com" },
               ].map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-white transition-colors font-medium dark:font-normal"
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  initial={{ opacity: 0.7 }}
-                  animate={{ opacity: [0.7, 1, 0.7] }}
-                  style={{ transition: `opacity 3s ease-in-out ${index * 0.3}s infinite` }}
+                  className="text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-300 transition-colors text-sm font-medium"
                 >
                   {social.name}
-                </motion.a>
+                </a>
               ))}
             </div>
           </motion.div>
